@@ -27,6 +27,7 @@
 <form method="POST" action="director-movie.php">
     director:<br>
     <select name="director_id">
+        <option selected="">  </option>
     <?php
         while ($row = mysql_fetch_array($rs_director)) {
     ?>
@@ -40,6 +41,7 @@
 
     Movie:<br>
     <select name="movie_id">
+        <option selected="">  </option>
     <?php
         while ($row = mysql_fetch_array($rs_movie)) {
     ?>
@@ -51,18 +53,26 @@
     ?>
     </select><br>
 
-    <input type="submit" value="Submit" name="submit"> <input type="submit" value="Homepage" name="Homepage">
+    <input type="submit" value="Submit" name="submit"> 
 </form>
 
-<?php
-    $mid = mysql_escape_string($_POST["movie_id"]);
-    $did = mysql_escape_string($_POST["director_id"]);
-    $query_relation = "INSERT INTO MovieDirector(mid, did) VALUES('$mid', '$did')";
+<form action="homepage.php" > 
+    <button type="submit">Homepage</button>
+</form> 
 
-    $rs_relation = mysql_query($query_relation, $db_connection);
-    if(!$rs_relation){
-        echo 'Unsupported query!';
+<?php
+
+    if (isset($_POST["submit"])){
+        $mid = mysql_escape_string($_POST["movie_id"]);
+        $did = mysql_escape_string($_POST["director_id"]);
+        $query_relation = "INSERT INTO MovieDirector(mid, did) VALUES('$mid', '$did')";
+
+        $rs_relation = mysql_query($query_relation, $db_connection);
+        if(!$rs_relation){
+            echo 'Unsupported query!';
+        }
     }
+
     if (isset($_POST["Homepage"])){
         header("Location:homepage.php");
         exit();
