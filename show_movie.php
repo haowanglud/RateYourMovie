@@ -9,6 +9,7 @@
 <h4> Search for Movie:</h4>
 <input type="text" name="key" value="" placeholder="" size="60">
 <input type="submit" value="Submit" name="submit"><br>
+<br><input type="submit" name="Homepage" value="Homepage">
 <br/>
 </FORM>
 
@@ -175,7 +176,6 @@
 <FORM METHOD = "POST" ACTION = "newComment.php">
 <h4> Leave your comment 
     <input type="submit" value="here" name="comment"/> <br>
-    <br><input type="submit" name="Homepage" value="Homepage">
 </h4>
 </FORM>
 
