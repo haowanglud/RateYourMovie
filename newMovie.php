@@ -73,7 +73,7 @@
 
 function addGenre($id, $genre, $db_connection){
     if ($id){
-        $genre_insert = "INSERT INTO MovieGenre VALUES (".$id.",".$genre.")";
+        $genre_insert = "INSERT INTO MovieGenre VALUES (".$id.",'".$genre."')";
         mysql_query($genre_insert, $db_connection);
     }
 }
@@ -97,7 +97,7 @@ function addGenre($id, $genre, $db_connection){
         $new_max_id = $max_id+1;
 
         $rating = $_POST["rating"];
-        $query = "INSERT INTO Movie VALUES (".$new_max_id.",".$_POST["title"].",".$_POST["year"].",".$rating.",".$_POST["company"].")";
+        $query = "INSERT INTO Movie VALUES (".$new_max_id.",'".$_POST["title"]."','".$_POST["year"]."','".$rating."','".$_POST["company"]."')";
 
         # if missing fields or invalid format of date
         if (!$_POST["title"] || !$_POST["company"] || !$_POST["year"] || !fnmatch("[0-2][0-9][0-9][0-9]", $_POST["year"])){
