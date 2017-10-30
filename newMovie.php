@@ -102,7 +102,6 @@ function addGenre($id, $genre, $db_connection){
         # if missing fields or invalid format of date
         if (!$_POST["title"] || !$_POST["company"] || !$_POST["year"] || !fnmatch("[0-2][0-9][0-9][0-9]", $_POST["year"])){
             echo "<h4> INVALID INPUT </h4>\n";
-            echo $query."\n";
         }
         else{
             $update = "UPDATE MaxMovieID SET id = ".$new_max_id;
@@ -130,6 +129,7 @@ function addGenre($id, $genre, $db_connection){
             addGenre($new_max_id, $_POST["thriller"], $db_connection);
             addGenre($new_max_id, $_POST["war"], $db_connection);
             addGenre($new_max_id, $_POST["western"], $db_connection);
+            echo 'Insertion succeed! <br>';
         }       
     }
 

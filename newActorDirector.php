@@ -74,12 +74,9 @@
                 $dod = $_POST["dod"];
             }
             $query = "INSERT INTO " .$_POST["occupation"]." VALUES (".$new_max_id.",'".$_POST["lastname"]."','".$_POST["firstname"]."','".$_POST["gender"]."','".$_POST["dob"]."','".$dod."')";
-
-            echo $query;
             # if missing fields or invalid format of date
             if (!$_POST["lastname"] || !$_POST["firstname"] || !$_POST["gender"] || !$_POST["dob"] || !fnmatch("[0-9][0-9][0-9][0-9][0-1][0-9][0-3][0-9]", $_POST["dob"]) ){
                 echo "<h4> INVALID INPUT </h4>\n";
-                echo $query."\n";
             }
             else{
                 $update = "UPDATE MaxPersonID SET id = ".$new_max_id;
@@ -87,6 +84,7 @@
                 mysql_query($query, $db_connection);
                 # update MaxPersonID
                 mysql_query($update, $db_connection);
+                echo 'Insertion succeed! <br>';
             }
         }
         else {#occupation not selected
