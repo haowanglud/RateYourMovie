@@ -38,7 +38,6 @@ a:active {
 <li><a href="actor-movie.php"> Add Actor to Movie</a></li>
 <li><a href="director-movie.php"> Add Director to Movie</a></li>
 
-
 <li><a href="show_actor.php"> Browse Actor Info</a></li>
 <li><a href="show_movie.php"> Browse Movie Info</a></li>
 
