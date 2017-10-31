@@ -17,7 +17,7 @@
 <h4> Movie Title</h4>
 <div>
 <input type="text" class = "block" placeholder="Movie Title; ie: Frozen" name="title" size="100" maxlength="100" />
-</div>
+</div>    
 
 <h4> Rating</h4>
 <div>
@@ -51,7 +51,7 @@
     }
 
     # select a database
-    mysql_select_db("TEST", $db_connection);
+    mysql_select_db("CS143", $db_connection);
     if (isset($_POST["submit"])){
 
         # invalid input

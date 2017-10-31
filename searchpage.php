@@ -15,7 +15,7 @@
     }
 
     # select a database
-    mysql_select_db("TEST", $db_connection);
+    mysql_select_db("CS143", $db_connection);
 ?>
 
 <form method="POST" action="searchpage.php">

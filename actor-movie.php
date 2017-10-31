@@ -15,12 +15,12 @@
     }
 
     # select a database
-    mysql_select_db("TEST", $db_connection);
+    mysql_select_db("CS143", $db_connection);
 
-    $query_actor = "SELECT id, first, last, dob FROM Actor";
+    $query_actor = "SELECT id, first, last, dob FROM Actor ORDER BY first, last";
     $rs_actor = mysql_query($query_actor, $db_connection);
 
-    $query_movie = "SELECT id, title, year FROM Movie";
+    $query_movie = "SELECT id, title, year FROM Movie ORDER BY title";
     $rs_movie = mysql_query($query_movie, $db_connection);
 ?>
 
@@ -64,19 +64,14 @@
 </form> 
 
 <?php
-
-    if (isset($_POST["submit"])){
-        $mid = mysql_escape_string($_POST["movie_id"]);
-        $aid = mysql_escape_string($_POST["actor_id"]);
-        $role = mysql_escape_string($_POST["role"]);
-        $query_relation = "INSERT INTO MovieActor(mid, aid, role) VALUES('$mid', '$aid', '$role')";
-
-        $rs_relation = mysql_query($query_relation, $db_connection);
-        if(!$rs_relation){
-            echo 'Unsupported query!';
-        }
+    $mid = $_POST["movie_id"];
+    $aid = $_POST["actor_id"];
+    $role = $_POST["role"];
+    $query_relation = "INSERT INTO MovieActor(mid, aid, role) VALUES($mid, $aid, '$role')";
+    $rs_relation = mysql_query($query_relation, $db_connection);
+    if(!$rs_relation && isset($_POST["submit"])){
+        echo 'Unsupported query!';
     }
-
     # close the connection
     mysql_close($db_connection);
 ?>

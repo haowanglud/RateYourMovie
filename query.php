@@ -25,7 +25,7 @@
     }
 
     # select a database
-    mysql_select_db("TEST", $db_connection);
+    mysql_select_db("CS143", $db_connection);
 
     // $sanitized_name = mysql_real_escape_string($_POST["query"], $db_connection);
     // $rs = mysql_query($sanitized_name, $db_connection);

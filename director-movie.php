@@ -15,12 +15,12 @@
     }
 
     # select a database
-    mysql_select_db("TEST", $db_connection);
+    mysql_select_db("CS143", $db_connection);
 
-    $query_director = "SELECT id, first, last, dob FROM Director";
+    $query_director = "SELECT id, first, last, dob FROM Director ORDER BY first, last";
     $rs_director = mysql_query($query_director, $db_connection);
 
-    $query_movie = "SELECT id, title, year FROM Movie";
+    $query_movie = "SELECT id, title, year FROM Movie ORDER BY title";
     $rs_movie = mysql_query($query_movie, $db_connection);
 ?>
 

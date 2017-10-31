@@ -88,7 +88,7 @@ function addGenre($id, $genre, $db_connection){
     }
 
     # select a database
-    mysql_select_db("TEST", $db_connection);
+    mysql_select_db("CS143", $db_connection);
     if (isset($_POST["submit"])){
         $rs = mysql_query("SELECT id FROM MaxMovieID", $db_connection);
         $row = mysql_fetch_array($rs);
