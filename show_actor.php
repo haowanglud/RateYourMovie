@@ -91,8 +91,13 @@
     		echo 'Name: '.$row_1[0].' '.$row_1[1].' <br>';
     		echo 'Sex: '.$row_1[2]. '<br>';
     		echo 'Date of Birth: '.$row_1[3]. '<br>';
-            if ($row_1[3])
-                echo 'Date of Death: '.$row_1[4]. '<br>';
+            if ($row_1[3]){
+                if ($row_1[4] == "0000-00-00"){
+                    echo 'Date of Death: <br>';
+                }
+                else
+                    echo 'Date of Death: '.$row_1[4]. '<br>';
+            }
     	}
 
         // Actors

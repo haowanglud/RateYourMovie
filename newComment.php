@@ -83,7 +83,6 @@
         //    echo $add;
             $rt = mysql_query($add, $db_connection);
             if (!$rt){
-                echo $add."<br/>";
                 echo "insert failed";
             }
         }

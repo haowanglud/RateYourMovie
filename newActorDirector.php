@@ -58,7 +58,7 @@
     }
 
     # select a database
-    mysql_select_db("TEST", $db_connection);
+    mysql_select_db("CS143", $db_connection);
     if (isset($_POST["submit"])){
         if ($_POST["occupation"]){
             $rs = mysql_query("SELECT id FROM MaxPersonID", $db_connection);
@@ -66,13 +66,7 @@
             $field = mysql_fetch_field($rs, 0);
             $max_id = $row[$field->name];
             $new_max_id = $max_id+1;
-            # no input in dod means alive
-            if (!$_POST["dod"]){
-                $dod = "\N";
-            }
-            else{
-                $dod = $_POST["dod"];
-            }
+            $dod = $_POST["dod"];
             if ($_POST["occupation"] == "Actor")
                 $query = "INSERT INTO " .$_POST["occupation"]." VALUES (".$new_max_id.",'".$_POST["lastname"]."','".$_POST["firstname"]."','".$_POST["gender"]."','".$_POST["dob"]."','".$dod."')";
             else
