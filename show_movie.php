@@ -173,7 +173,7 @@
 
     
 ?>
-<FORM METHOD = "POST" ACTION = "newComment.php">
+<form method = "POST" action = "newComment.php">
 <h4> Leave your comment 
     <input type="submit" value="here" name="comment"/> <br>
 </h4>
